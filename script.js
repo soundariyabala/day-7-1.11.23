@@ -6,7 +6,6 @@ request.send();
 request.onload=function(){
     var data=request.response;
     var result=JSON.parse(data);
-    console.log(result);
 var result1=result.filter((ele)=>(ele.region==="Asia"))
 var result2=result1.map((ele)=>console.log(ele.name.common))}
 
@@ -31,7 +30,6 @@ request2.onload=function(){
     var result6=JSON.parse(data2);
     result6.forEach((ele)=>console.log(`${ele.name.common}:${ele.capital}:${ele.flags.png}`))}
 
-
 //1d.Print the total population of countries using reduce function
 
 var request3=new XMLHttpRequest();
@@ -51,8 +49,7 @@ request4.send();
 request4.onload=function(){
     var data4=request4.response;
     var result9=JSON.parse(data4);
- var result10=result9.map((element)=>element.currencies)
-var result11=result10.forEach((element)=>console.log(element.USD))
-}
+ var result10=result9.filter((element)=>element.currencies && element.currencies.USD)
+var result11=result10.forEach((element)=>console.log(element.name.common))}
 
 
